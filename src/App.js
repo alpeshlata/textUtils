@@ -8,7 +8,7 @@ function App() {
     <>
       <Navabaar title='TextUtils' about='About TextUtils'/>
       <div className='container my-5'>
-      <TextForm heading="Enter The text to analtze"/>
+        <TextForm heading="Enter The text to analtze"/>
       </div>
       
     </>
