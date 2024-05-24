@@ -35,10 +35,19 @@ let charLen=(str)=>{
     var regex = /\S/g; // split on non-whitespace characters
     return (str.split(regex).length - 1);
 }
-// let letterLen=(str)=>{
-//   let regex = /[a-zA-Z]/g;
-// console.log(str.match(regex).length);
-// }
+let heandelClclick=()=>{
+  setText("");
+}
+let heandelExtraSpaces=()=>{
+  let newtext=text.split(/[ ]+/);
+  setText(newtext.join(" "));
+}
+let heandelCopy=()=>{
+  var text=document.getElementById("myBox");
+  text.select(text.Selection);
+  navigator.clipboard.writeText(text.value);
+
+}
   return (
     <>
         <div className='container'>
@@ -46,20 +55,21 @@ let charLen=(str)=>{
           <div className="mb-3">
             <h1>{props.heaing}</h1>
             <textarea className="form-control" id="myBox" value={text} onChange={heandelOnchange} placeholder='Enter text here' rows="10"></textarea>
-            <button className='btn btn-primary mt-3' onClick={heandelUpclick}>Convert To Uppercase</button>
-            
+            <button className='btn btn-primary mt-3' onClick={heandelUpclick}>Convert To Uppercase</button> 
             <button className='btn btn-primary mt-3 mx-2' onClick={heandelLoclick}>Convert To Lowerecase</button>
+            <button className='btn btn-primary mt-3 mx-2' onClick={heandelExtraSpaces}>Remove Extra Spaces</button>
+            <button className='btn btn-primary mt-3 mx-2' onClick={heandelCopy}>Copy All Text</button>
+            <button className='btn btn-primary mt-3 mx-2' onClick={heandelPaste}>Paste Text</button>
+            <button className='btn btn-primary mt-3 mx-2' onClick={heandelClclick}>Clear</button>
           </div>
         </div>
         <div className="container my-3">
             <h2>Your Text Summary</h2>
             <p>words : {wordsLen(text)}  ||  characters : {charLen(text)}   ||  Letters : { charLen(text)} ||  Digites  : {0.008*wordsLen(text)}   ||  Minutes : {0.008*wordsLen(text)}</p>
-      
             <h2>Preview</h2>
             <p>{text}</p>
         </div>
-    </>    
-    
+    </>     
   )
 }
 
