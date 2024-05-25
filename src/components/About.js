@@ -4,10 +4,32 @@ export default function About() {
 
     const [theem,settheem]=useState(
         {
-            color:"white",
-            backgroundColor:"black"
+            color:"black",
+            backgroundColor:"white"
         }
     )
+    const [btnText,setBtnText]=useState("Enable Dark Mode");
+
+    const togglesttle=()=>{
+        if(theem.color==='white'){
+            settheem(
+                {
+                    color:'black',
+                    backgroundColor:'white'
+                }
+            )
+            setBtnText("Enable Dark Mode")
+        }
+        else{
+            settheem(
+                {
+                    color:'white',
+                    backgroundColor:'black'
+                }
+            )
+            setBtnText("Enable Ligth Mode")
+        }
+    }
   return (
     <>
         <div className="container" style={theem}>
@@ -50,7 +72,7 @@ export default function About() {
             </div>
             </div>
             </div>
-            <button className='btn btn btn-primary my-3'>Dark Mode</button>
+            <button className='btn btn btn-primary my-3' onClick={togglesttle}>{btnText}</button>
             
         </div>
     </>

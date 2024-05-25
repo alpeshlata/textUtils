@@ -50,24 +50,24 @@ let heandelCopy=()=>{
 }
   return (
     <>
-        <div className='container'>
-          <h1>{props.heading}</h1>
+        <div className='container' style={{color:props.mode==='ligth'?'black':'white'}}>
+          <h2>{props.heading}</h2>
           <div className="mb-3">
-            <h1>{props.heaing}</h1>
-            <textarea className="form-control" id="myBox" value={text} onChange={heandelOnchange} placeholder='Enter text here' rows="10"></textarea>
+            {/* <h4>{props.heaing}</h4> */}
+            <textarea className="form-control" id="myBox"  value={text} onChange={heandelOnchange} style={{backgroundColor:'transparent',color:props.mode==='ligth'?'black':'white'}} placeholder='Enter text here' rows="8"></textarea>
             <button className='btn btn-primary mt-3' onClick={heandelUpclick}>Convert To Uppercase</button> 
             <button className='btn btn-primary mt-3 mx-2' onClick={heandelLoclick}>Convert To Lowerecase</button>
             <button className='btn btn-primary mt-3 mx-2' onClick={heandelExtraSpaces}>Remove Extra Spaces</button>
             <button className='btn btn-primary mt-3 mx-2' onClick={heandelCopy}>Copy All Text</button>
-            <button className='btn btn-primary mt-3 mx-2' onClick={heandelPaste}>Paste Text</button>
+            {/* <button className='btn btn-primary mt-3 mx-2' onClick={heandelPaste}>Paste Text</button> */}
             <button className='btn btn-primary mt-3 mx-2' onClick={heandelClclick}>Clear</button>
           </div>
         </div>
-        <div className="container my-3">
-            <h2>Your Text Summary</h2>
+        <div className="container my-3" style={{backgroundColor:'transparent',color:props.mode==='ligth'?'black':'white'}}>
+            <h3>Your Text Summary</h3>
             <p>words : {wordsLen(text)}  ||  characters : {charLen(text)}   ||  Letters : { charLen(text)} ||  Digites  : {0.008*wordsLen(text)}   ||  Minutes : {0.008*wordsLen(text)}</p>
             <h2>Preview</h2>
-            <p>{text}</p>
+            <p>{text.length>0?text:'Enter something in the textbox above to preview it here '}</p>
         </div>
     </>     
   )
