@@ -6,13 +6,26 @@ export default function TextForm(props) {
 
   const heandelUpclick=()=>{
     // console.log("Heandled OnClick");
+   if(text!==""){
     let newtext=text.toUpperCase();
     setText(newtext)
+    props.showalert("Text converted to Uppercase","success")
+   }
+   else{
+    props.showalert("Insert Text converte in to Uppercase","warning")
+   }
   }
   const heandelLoclick=()=>{
+    
+    if(text!==""){
     // console.log("Heandled OnClick");
-    let newtext= text.toLowerCase();
-    setText(newtext)
+      let newtext= text.toLowerCase();
+      setText(newtext)
+      props.showalert("Text converted to Lowercase","success")
+     }
+     else{
+      props.showalert("Insert Text converte in to Lowercase","warning")
+     }
   }
   const heandelOnchange=(event)=>{
     // console.log("heandel OnChange")
@@ -37,16 +50,29 @@ let charLen=(str)=>{
 }
 let heandelClclick=()=>{
   setText("");
+  props.showalert("Cleared text","success")
 }
 let heandelExtraSpaces=()=>{
-  let newtext=text.split(/[ ]+/);
-  setText(newtext.join(" "));
+  if(text!==""){
+      let newtext=text.split(/[ ]+/);
+      setText(newtext.join(" "));
+      props.showalert("Removed extra spaces","success")
+     }
+     else{
+      props.showalert("Insert Text to remove extra spaces","warning")
+     }
 }
 let heandelCopy=()=>{
-  var text=document.getElementById("myBox");
-  text.select(text.Selection);
-  navigator.clipboard.writeText(text.value);
-
+  
+  // if(text!==""){
+    var text=document.getElementById("myBox");
+    text.select(text.Selection);
+    navigator.clipboard.writeText(text.value);
+    props.showalert("Copied clipbord","success")
+  //  }
+  //  else{
+  //   props.showalert("Select text to copy","warning")
+  //  }
 }
   return (
     <>
