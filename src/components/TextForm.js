@@ -80,20 +80,20 @@ let heandelCopy=()=>{
           <div className="mb-3">
             {/* <h4>{props.heaing}</h4> */}
             <textarea className="form-control " id="myBox"  value={text} onChange={heandelOnchange} style={{backgroundColor:props.mode==='ligth'?'transparent':'#242742',color:props.mode==='ligth'?'black':'white'}} placeholder='Enter text here' rows="8"></textarea>
-            <button className='btn btn-primary mt-3' onClick={heandelUpclick}>Convert To Uppercase</button> 
-            <button className='btn btn-primary mt-3 mx-2' onClick={heandelLoclick}>Convert To Lowerecase</button>
-            <button className='btn btn-primary mt-3 mx-2' onClick={heandelExtraSpaces}>Remove Extra Spaces</button>
-            <button className='btn btn-primary mt-3 mx-2' onClick={heandelCopy}>Copy All Text</button>
+            <button className='btn btn-primary mt-3' disabled={text.length===0} onClick={heandelUpclick}>Convert To Uppercase</button> 
+            <button className='btn btn-primary mt-3 mx-2' disabled={text.length===0}  onClick={heandelLoclick}>Convert To Lowerecase</button>
+            <button className='btn btn-primary mt-3 mx-2' disabled={text.length===0} onClick={heandelExtraSpaces}>Remove Extra Spaces</button>
+            <button className='btn btn-primary mt-3 mx-2' disabled={text.length===0} onClick={heandelCopy}>Copy All Text</button>
             {/* <button className='btn btn-primary mt-3 mx-2' onClick={heandelPaste}>Paste Text</button> */}
             
-            <button className='btn btn-primary mt-3 mx-2' onClick={heandelClclick}>Clear</button>
+            <button className='btn btn-primary mt-3 mx-2' disabled={text.length===0} onClick={heandelClclick}>Clear</button>
           </div>
         </div>
         <div className="container my-3" style={{backgroundColor:'transparent',color:props.mode==='ligth'?'black':'white'}}>
             <h3>Your Text Summary</h3>
-            <p>words : {wordsLen(text)}  ||  characters : {charLen(text)}   ||  Letters : { charLen(text)} ||  Digites  : {0.008*wordsLen(text)}   ||  Minutes : {0.008*wordsLen(text)}</p>
+            <p>words : {wordsLen(text)}  ||  characters : {charLen(text)}   ||  Letters : null  ||  Digites  : null   ||  Minutes : {text.length===0?'0':0.008*wordsLen(text)}</p>
             <h2>Preview</h2>
-            <p>{text.length>0?text:'Enter something in the textbox above to preview it here '}</p>
+            <p>{text.length>0?text:'Nothing to preview...! '}</p>
         </div>
     </>     
   )
