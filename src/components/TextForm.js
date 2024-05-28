@@ -79,12 +79,13 @@ let heandelCopy=()=>{
           <h2>{props.heading}</h2>
           <div className="mb-3">
             {/* <h4>{props.heaing}</h4> */}
-            <textarea className="form-control" id="myBox"  value={text} onChange={heandelOnchange} style={{backgroundColor:'transparent',color:props.mode==='ligth'?'black':'white'}} placeholder='Enter text here' rows="8"></textarea>
+            <textarea className="form-control " id="myBox"  value={text} onChange={heandelOnchange} style={{backgroundColor:props.mode==='ligth'?'transparent':'#242742',color:props.mode==='ligth'?'black':'white'}} placeholder='Enter text here' rows="8"></textarea>
             <button className='btn btn-primary mt-3' onClick={heandelUpclick}>Convert To Uppercase</button> 
             <button className='btn btn-primary mt-3 mx-2' onClick={heandelLoclick}>Convert To Lowerecase</button>
             <button className='btn btn-primary mt-3 mx-2' onClick={heandelExtraSpaces}>Remove Extra Spaces</button>
             <button className='btn btn-primary mt-3 mx-2' onClick={heandelCopy}>Copy All Text</button>
             {/* <button className='btn btn-primary mt-3 mx-2' onClick={heandelPaste}>Paste Text</button> */}
+            
             <button className='btn btn-primary mt-3 mx-2' onClick={heandelClclick}>Clear</button>
           </div>
         </div>
